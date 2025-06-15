@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Date aur Time Sahi Dalo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background-color: #0e0e0e;
+      color: #fff;
+      font-family: monospace;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #00e676;
+    }
+    select, input {
+      padding: 10px;
+      margin: 10px auto;
+      display: block;
+      width: 260px;
+      border-radius: 6px;
+      border: none;
+      background: #222;
+      color: white;
+    }
+    .submit-btn {
+      background-color: #00c853;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    .unlocked {
+      margin-top: 15px;
+      font-size: 16px;
+      color: #00e676;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📅 Date aur Time Sahi Dalo</h1>
+
+  <select id="dateSelect">
+    <option value="2025-06-14">2025-06-14</option>
+    <option value="2025-06-15">2025-06-15</option>
+    <option value="2025-06-16">2025-06-16</option>
+    <option value="2025-06-17">2025-06-17</option>
+    <option value="2025-06-18">2025-06-18</option>
+    <option value="2025-06-19">2025-06-19</option>
+    <option value="2025-06-20">2025-06-20</option>
+    <option value="2025-06-21">2025-06-21</option>
+    <option value="2025-06-22">2025-06-22</option>
+    <option value="2025-06-23">2025-06-23</option>
+    <option value="2025-06-24">2025-06-24</option>
+    <option value="2025-06-25">2025-06-25</option>
+    <option value="2025-06-26">2025-06-26</option>
+    <option value="2025-06-27">2025-06-27</option>
+    <option value="2025-06-28">2025-06-28</option>
+    <option value="2025-06-29">2025-06-29</option>
+  </select>
+
+  <select id="hourSelect">
+    <option value="00">00:00</option><option value="01">01:00</option><option value="02">02:00</option><option value="03">03:00</option><option value="04">04:00</option><option value="05">05:00</option><option value="06">06:00</option><option value="07">07:00</option><option value="08">08:00</option><option value="09">09:00</option><option value="10">10:00</option><option value="11">11:00</option><option value="12">12:00</option><option value="13">13:00</option><option value="14">14:00</option><option value="15">15:00</option><option value="16">16:00</option><option value="17">17:00</option><option value="18">18:00</option><option value="19">19:00</option><option value="20">20:00</option><option value="21">21:00</option><option value="22">22:00</option><option value="23">23:00</option>
+  </select>
+
+  <input type="text" id="adminCode" placeholder="Enter code to test" />
+  <button class="submit-btn" onclick="checkCode()">Check Code</button>
+
+  <div id="result" class="unlocked"></div>
+  <div id="sensiLink" style="text-align:center;margin-top:10px;"></div>
+
+  <div style="margin-top:40px; padding: 20px; background:#111; border-radius: 10px; font-size: 16px;">
+    📞 <b>Contact:</b> <a style="color:#4fc3f7;" href="tel:7588573457">7588573457</a><br>
+    💸 <b>Payment UPI:</b> <span style="color:#69f0ae;">9552225594@ybl</span><br>
+    💬 <b>WhatsApp:</b> <a style="color:#4fc3f7;" href="https://wa.me/7588573457" target="_blank">Chat on WhatsApp</a><br><br>
+    🔐 <i>Payment screenshot bhejo aur sensi code mil jaayega</i>
+  </div>
+
+  <script>
+    const android = {};
+    const ios = {};
+
+    // Placeholder: Add real values here from backend if needed
+    function checkCode() {
+      const date = document.getElementById("dateSelect").value;
+      const hour = document.getElementById("hourSelect").value;
+      const code = document.getElementById("adminCode").value.trim();
+      const result = document.getElementById("result");
+      const sensiLink = document.getElementById("sensiLink");
+
+      if (false) {
+        result.textContent = "✅ Android Sensi Unlocked!";
+        sensiLink.innerHTML = '<a href="https://sayyedmurtuza145.github.io/Deeluxe99/" style="color:white;background:#00e676;padding:10px 20px;border-radius:6px;text-decoration:none;">Go to Android Sensi</a>';
+      } else if (false) {
+        result.textContent = "✅ iOS Sensi Unlocked!";
+        sensiLink.innerHTML = '<a href="https://sayyedmurtuza145.github.io/Flarglepox0/" style="color:white;background:#00e676;padding:10px 20px;border-radius:6px;text-decoration:none;">Go to iOS Sensi</a>';
+      } else {
+        result.textContent = "❌ Code invalid or expired for selected time.";
+        sensiLink.innerHTML = '';
+      }
+    }
+  </script>
+
+</body>
+</html>
